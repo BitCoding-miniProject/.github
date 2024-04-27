@@ -1,12 +1,49 @@
-## Hi there 👋
+# 문장 임베딩 기술을 사용한 유사 판례 검색 시스템 - 케이스매치
 
-<!--
+## 📅 프로젝트 기간
+2024년 4월 16일~ 2024년 4월 18일
 
-**Here are some ideas to get you started:**
+## 👥 팀 소개
+### Team.BitCoding - FirstProject
+- 박채현
+- 박성웅
+- 강영주
+- 정원제
 
-🙋‍♀️ A short introduction - what is your organization all about?
-🌈 Contribution guidelines - how can the community get involved?
-👩‍💻 Useful resources - where can the community find your docs? Is there anything else the community should know?
-🍿 Fun facts - what does your team eat for breakfast?
-🧙 Remember, you can do mighty things with the power of [Markdown](https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
--->
+## 🍉 프로젝트 개요
+본 프로젝트는 문장 임베딩 기술을 사용하여 사용자가 입력한 문장과 유사한 판례를 검색하고, 특정 판례의 상세 정보를 조회할 수 있는 법률 판례 검색 및 조회 서비스입니다. FastAPI를 기반으로 개발되었으며, 최신 NLP 기술을 활용하여 빠르고 정확한 검색 결과를 제공합니다.
+
+## 🥦 주요 기능
+- **판례 검색**: 사용자가 입력한 문장과 유사한 판례의 제목을 검색합니다.
+- **판례 상세 조회**: 사용자가 특정 판례의 등록번호를 입력하면, 해당 판례의 상세 정보를 조회합니다.
+- **판례 목록 조회**: 데이터베이스에 저장된 모든 판례의 기본 정보를 조회합니다.
+
+## 🍪 기술 스택
+- **FastAPI**: 비동기 프로그래밍을 지원하는 modern, fast web framework입니다.
+- **SentenceTransformer**: 'jhgan/ko-sroberta-multitask' 모델을 사용하여 한국어 문장의 벡터 표현을 생성합니다.
+- **NumPy 및 PyTorch**: 벡터 연산과 텐서 연산, 그리고 코사인 유사도 계산에 사용됩니다.
+- **Pandas**: 데이터 처리와 판례 데이터의 쉬운 조작 및 관리를 위해 사용됩니다.
+- **MySQL**: 판례 데이터의 저장 및 쿼리 처리에 사용됩니다.
+- **Amazon Lightsail**: 서버 호스팅 및 데이터베이스 관리에 사용됩니다.
+
+## 🍔 작동 원리
+1. 사용자는 웹 인터페이스 또는 API를 통해 문장을 입력합니다.
+2. 입력된 문장은 SentenceTransformer를 사용하여 벡터로 변환됩니다.
+3. 변환된 벡터는 데이터베이스에 저장된 판례 제목의 임베딩과 비교됩니다.
+4. 코사인 유사도를 계산하여 유사도가 높은 상위 5개의 판례를 선정합니다.
+5. 선택된 판례의 제목과 유사도 점수를 사용자에게 반환합니다.
+
+## 🍎 시스템 아키텍처
+- 웹 서버와 데이터베이스는 Amazon Lightsail 인스턴스에서 실행됩니다.
+- 판례 데이터는 MySQL 데이터베이스에 저장되며, Lightsail의 관리형 데이터베이스 서비스를 통해 운영됩니다.
+- 애플리케이션 로직은 FastAPI 기반의 웹 서버에서 실행됩니다.
+
+## 🌽 사용 예시
+- **판례 검색**: "부동산 계약 파기"와 같은 문장을 입력하여 유사한 판례를 검색할 수 있습니다.
+- **판례 상세 조회**: 특정 판례의 등록번호, 예를 들어 "12345"를 입력하여 해당 판례의 상세 정보를 조회할 수 있습니다.
+- **판례 목록 조회**: 판례 목록 조회 요청을 통해 모든 판례의 기본 정보를 조회할 수 있습니다.
+
+## 🍮 기대 효과
+본 시스템은 법률 전문가들에게 대량의 판례 정보 중에서 특정 사안과 관련된 판례를 빠르게 찾아낼 수 있는 유용한 도구가 될 것입니다.
+또한, 판례의 상세 정보 조회 기능은 특정 판례에 대한 심층적인 이해를 도울 수 있습니다.
+
